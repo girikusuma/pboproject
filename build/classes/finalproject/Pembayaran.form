@@ -54,7 +54,9 @@
                       <Component id="hapusID" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="hapuskode" min="-2" pref="58" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="hapusJumlah" min="-2" pref="58" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -88,7 +90,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="hapusID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="hapuskode" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="hapusJumlah" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
@@ -192,6 +195,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="hapuskode">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="hapusJumlah">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>

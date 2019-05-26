@@ -77,6 +77,7 @@ public class Pembayaran extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         hapusID = new javax.swing.JTextField();
         hapuskode = new javax.swing.JTextField();
+        hapusJumlah = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,6 +139,8 @@ public class Pembayaran extends javax.swing.JFrame {
 
         hapuskode.setEnabled(false);
 
+        hapusJumlah.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,7 +170,9 @@ public class Pembayaran extends javax.swing.JFrame {
                         .addComponent(hapusID, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(hapuskode, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(5, 5, 5)
+                        .addComponent(hapusJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
@@ -194,7 +199,8 @@ public class Pembayaran extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(hapusID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(hapuskode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(hapusJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -257,6 +263,7 @@ public class Pembayaran extends javax.swing.JFrame {
         if(i>-1){
             hapusID.setText(model1.getValueAt(i, 0).toString());
             hapuskode.setText(model1.getValueAt(i, 1).toString());
+            hapusJumlah.setText(model1.getValueAt(i, 4).toString());
         }
     }//GEN-LAST:event_TabelPembeliMouseClicked
 
@@ -264,9 +271,11 @@ public class Pembayaran extends javax.swing.JFrame {
         // TODO add your handling code here:
         String ID = hapusID.getText();
         String kode = hapuskode.getText();
+        String jumlah = hapusJumlah.getText();
          try {
             Connection c = Koneksi.getKoneksi();
             c.createStatement().executeUpdate("delete from pembeli where ID='"+ID+"' and kode='"+kode+"' and keterangan='Belum Lunas'");
+            c.createStatement().executeUpdate("update from produk ");
             tampilkan();
             resethapus();
         } catch (SQLException ex) {
@@ -313,6 +322,7 @@ public class Pembayaran extends javax.swing.JFrame {
     private javax.swing.JTable TabelPembeli;
     private javax.swing.JTextField cashPembeli;
     private javax.swing.JTextField hapusID;
+    private javax.swing.JTextField hapusJumlah;
     private javax.swing.JTextField hapuskode;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
